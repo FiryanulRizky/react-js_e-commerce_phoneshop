@@ -24,12 +24,26 @@ class ProductProvider extends Component {
         })
     }
 
-    handleDetail=() => {
-        console.log('hello detail');
+    getItem = id => {
+        const product = this.state.products.find(item=> item.id==id);
+        return product;
     }
-    addToCart=() => {
-        console.log('hello cart');
+
+    // handleDetail=() => {
+    //     console.log('hello detail');
+    // }
+
+    handleDetail= id => {
+        const product = this.getItem(id);
+        this.setState(()=>{
+            return {detailProduct:product}
+        })
     }
+
+    addToCart= id => {
+        console.log('ini adalah id = $(id)');
+    }
+
     render() {
         return (
             <ProductContext.Provider value={{ ...this.state, handleDetail:this.handleDetail, addToCart:this.addToCart }}>
