@@ -30,8 +30,13 @@ class Details extends Component {
                                         <ButtonContainer className='mr-2'>Back To Product</ButtonContainer>
                                     </Link>
                                     <ButtonContainer
+                                        cart
                                         disabled = {inCart?true:false}
-                                    >
+                                        onClick={()=>{
+                                            // console.log('Add to cart');
+                                            value.addToCart(id);
+                                            value.openModal(id);
+                                         }}>
                                         {inCart?"In Cart":"Add To Cart"}
                                     </ButtonContainer>
                                 </div>
